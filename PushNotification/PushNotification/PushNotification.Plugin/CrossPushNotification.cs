@@ -10,7 +10,7 @@ namespace PushNotification.Plugin
   public class CrossPushNotification
   {
 
-    static Lazy<IPushNotification> Implementation = new Lazy<IPushNotification>(() => CreatePushNotification(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
+    static Lazy<IPushNotification> Implementation = new Lazy<IPushNotification>(CreatePushNotification, System.Threading.LazyThreadSafetyMode.PublicationOnly);
     public static bool IsInitialized { get { return (PushNotificationListener != null);  } }
     public static IPushNotificationListener PushNotificationListener { get; private set; }
   

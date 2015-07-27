@@ -22,13 +22,13 @@ namespace PushNotification.Plugin
             System.Diagnostics.Debug.WriteLine("Push Notification Service - Created");
         }
 
-        public override StartCommandResult OnStartCommand(Android.Content.Intent intent, StartCommandFlags flags, int startId)
+        public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
         {
             System.Diagnostics.Debug.WriteLine("Push Notification Service - Started");
             return StartCommandResult.Sticky;
         }
 
-        public override Android.OS.IBinder OnBind(Android.Content.Intent intent)
+        public override Android.OS.IBinder OnBind(Intent intent)
         {
             System.Diagnostics.Debug.WriteLine("Push Notification Service - Binded");
             return null;
