@@ -77,9 +77,7 @@ namespace PushNotification.Plugin
 
 		protected override void OnHandleIntent(Intent intent)
 		{
-
-			Bundle extras = intent.Extras;
-                
+			Bundle extras = intent != null ? intent.Extras : null;
 
 			if(extras != null && !extras.IsEmpty)
 			{
@@ -97,12 +95,8 @@ namespace PushNotification.Plugin
 
 					var parameters = new Dictionary<string, object>();
 
-					foreach(var key in intent.Extras.KeySet())
-					{
-
-						parameters.Add(key, intent.Extras.Get(key));
-
-					}
+					foreach(var key in extras.KeySet())
+						parameters.Add(key, extras.Get(key));
 
 					Context context = Android.App.Application.Context;
 
@@ -393,6 +387,7 @@ namespace PushNotification.Plugin
 
 
 			Intent resultIntent = context.PackageManager.GetLaunchIntentForPackage(context.PackageName);
+			resultIntent.PutExtra("NotifyId", notifyId);
 			//Intent resultIntent = new Intent(context, typeof(T));
            
 
