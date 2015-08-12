@@ -236,7 +236,14 @@ namespace PushNotification.Plugin
 				}
 
 				string regId = await System.Threading.Tasks.Task.Run(() => {
+					try
+					{
 					return gcm.Register(CrossPushNotification.SenderId);
+					}
+					catch(System.Exception ex)
+					{
+						return string.Empty;
+					}
 				});
 
 				System.Diagnostics.Debug.WriteLine(string.Format("{0} - Device registered, registration ID=" + regId, PushNotificationKey.DomainName));
