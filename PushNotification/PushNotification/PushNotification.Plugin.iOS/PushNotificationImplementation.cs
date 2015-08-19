@@ -68,8 +68,23 @@ namespace PushNotification.Plugin
 
 			foreach (NSString key in userInfo.Keys)
 			{
+				if(key == "aps")
+				{
+					// flatten this dictionary for the handler
+					var apsDict = userInfo.ValueForKey(key) as NSDictionary;
+					if(apsDict != null)
+					{
+						foreach(var apsKey in apsDict)
+							parameters.Add(apsKey.Key.ToString(), apsKey.Value);
+					}
+				}
 				parameters.Add(key, userInfo.ValueForKey(key));
+
 			}
+
+			Debug.WriteLine("OnMessageReceived keys: ");
+			foreach(var item in parameters)
+				Debug.WriteLine("  {0} = {1}", item.Key, item.Value);
           
             if (CrossPushNotification.IsInitialized)
             {
