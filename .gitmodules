@@ -1,0 +1,3 @@
+[submodule "GCMClient"]
+	path = GCMClient
+	url = https://github.com/Redth/GCM.Client.git

@@ -117,14 +117,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GcmImplementation.cs" />
     <Compile Include="..\PushNotification.Plugin\CrossPushNotification.cs">
       <Link>CrossPushNotification.cs</Link>
     </Compile>
-    <Compile Include="PushNotificationImplementation.cs" />
-    <Compile Include="PushNotificationService.cs" />
-    <Compile Include="Resources\Resource.Designer.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PushNotificationsReceiver.cs" />
+    <Compile Include="..\..\..\GCMClient\Gcm.Client\Constants.cs">
+      <Link>GCMClient\Constants.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\GCMClient\Gcm.Client\GcmBroadcastReceiverBase.cs">
+      <Link>GCMClient\GcmBroadcastReceiverBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\GCMClient\Gcm.Client\GcmServiceBase.cs">
+      <Link>GCMClient\GcmServiceBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\GCMClient\Gcm.Client\InternalGcmClient.cs">
+      <Link>GCMClient\InternalGcmClient.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -144,4 +154,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Folder Include="GCMClient\" />
+  </ItemGroup>
 </Project>
