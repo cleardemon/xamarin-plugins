@@ -42,9 +42,16 @@ namespace PushNotification.Plugin
 
 		public void Register()
 		{
-			GcmClient.CheckDevice(Application.Context);
-			GcmClient.CheckManifest(Application.Context);
-			GcmClient.Register(Application.Context, GcmBroadcastReceiver.SENDER_IDS);
+			try
+			{
+				GcmClient.CheckDevice(Application.Context);
+				GcmClient.CheckManifest(Application.Context);
+				GcmClient.Register(Application.Context, GcmBroadcastReceiver.SENDER_IDS);
+			}
+			catch(InvalidOperationException)
+			{
+				// if thrown, push notifications not supported
+			}
 		}
 
 		public void Unregister()
