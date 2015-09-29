@@ -7,7 +7,7 @@ namespace PushNotification.Plugin
   /// <summary>
   /// Cross platform PushNotification implemenations
   /// </summary>
-  public class CrossPushNotification
+  public static class CrossPushNotification
   {
 
     static Lazy<IPushNotification> Implementation = new Lazy<IPushNotification>(CreatePushNotification, System.Threading.LazyThreadSafetyMode.PublicationOnly);
