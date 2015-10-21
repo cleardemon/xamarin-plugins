@@ -1,0 +1,3 @@
+[submodule "GCMClient"]
+	path = GCMClient
+	url = https://cleardemon@github.com/cleardemon/GCM.Client.git
